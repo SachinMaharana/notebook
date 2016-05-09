@@ -15,4 +15,26 @@ class Note:
 		return filter in self.memo or filter in self.tags
 
 
+class Notebook:
+	def __init__(self):
+		self.notes = []
+
+	def new_note(self,memo,tags=''):
+		self.notes.append(Note(memo,tags))
+
+
+	def _find_note(self,note_id):
+		for note in self.notes:
+			if note_id == note_id:
+				return note
+			return None
+
+	def modify_note(self,note_id,memo):
+		self._find_note(note_id).memo = memo
+
+	def modify_tags(self,note_id,tags):
+		self._find_note(note_id).memo = memo
+
+	def search(self, filter):
+		return [note for note in self.notes if note.match(filter)]
 
